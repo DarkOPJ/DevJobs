@@ -1,5 +1,5 @@
-const API_TO_USE = '/jobApi'
-// const API_TO_USE = '/api'
+// const API_TO_USE = '/jobApi'
+const API_TO_USE = 'https://jsondevdessert.onrender.com/jobs'
 
 // Used to fetch jobs from the api
 export const fetchJobs = async (endpoint) => {
@@ -8,7 +8,7 @@ export const fetchJobs = async (endpoint) => {
     // const res = await fetch(`/jobApi`);
 
     // For online data fetching since proxy not working on vercel
-    const res = await fetch(`${API_TO_USE + endpoint}`);
+    const res = await fetch(`${API_TO_USE}${endpoint}`);
     // const res = await fetch(`${API_TO_USE}`);
     if (!res.ok) {
       throw new Error("HTTP Error! Error code: ", res.status);
