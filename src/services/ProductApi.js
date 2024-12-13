@@ -1,4 +1,3 @@
-// const API_BASE_URL = "http://localhost:4000";
 // const API_TO_USE = '/jobApi/jobs'
 const API_TO_USE = '/api/jobs'
 
