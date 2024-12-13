@@ -17,7 +17,7 @@ const Joblistings = ({ isHome = true }) => {
     const fetchingJobs = async () => {
       try {
         // const data = await fetchJobs("/jobs");
-        const data = await fetchJobs("");
+        const data = await fetchJobs('');
         setJobs(data.reverse());
       } catch (err) {
         setError(err.message);

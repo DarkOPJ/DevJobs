@@ -1,14 +1,14 @@
-// const API_TO_USE = '/jobApi/jobs'
-const API_TO_USE = '/api/jobs'
+const API_TO_USE = '/jobApi'
+// const API_TO_USE = '/api'
 
 // Used to fetch jobs from the api
 export const fetchJobs = async (endpoint) => {
   try {
     // For online data fetching when app is not hosted
-    // const res = await fetch(`/jobApi${endpoint}`);
+    // const res = await fetch(`/jobApi`);
 
     // For online data fetching since proxy not working on vercel
-    const res = await fetch(`${API_TO_USE}${endpoint}`);
+    const res = await fetch(`${API_TO_USE + endpoint}`);
     // const res = await fetch(`${API_TO_USE}`);
     if (!res.ok) {
       throw new Error("HTTP Error! Error code: ", res.status);
