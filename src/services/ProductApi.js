@@ -1,4 +1,6 @@
 // const API_BASE_URL = "http://localhost:4000";
+// const API_TO_USE = '/jobApi/jobs'
+const API_TO_USE = '/api/jobs'
 
 // Used to fetch jobs from the api
 export const fetchJobs = async (endpoint) => {
@@ -7,7 +9,8 @@ export const fetchJobs = async (endpoint) => {
     // const res = await fetch(`/jobApi${endpoint}`);
 
     // For online data fetching since proxy not working on vercel
-    const res = await fetch(`/api${endpoint}`);
+    const res = await fetch(`${API_TO_USE}${endpoint}`);
+    // const res = await fetch(`${API_TO_USE}`);
     if (!res.ok) {
       throw new Error("HTTP Error! Error code: ", res.status);
     }
@@ -23,7 +26,7 @@ export const fetchJobs = async (endpoint) => {
 // Used to add a new job to the api
 export const addNewJob = async (newJob) => {
   try {
-    const res = await fetch("/jobApi/jobs", {
+    const res = await fetch(`${API_TO_USE}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newJob),
@@ -44,7 +47,7 @@ export const addNewJob = async (newJob) => {
 // Used to delete a job
 export const deleteJob = async (id) => {
   try {
-    const res = await fetch(`/jobApi/jobs/${id}`, {
+    const res = await fetch(`${API_TO_USE}/${id}`, {
       method: "DELETE",
     });
     if (!res.ok) {
@@ -63,7 +66,7 @@ export const deleteJob = async (id) => {
 // Used to edit a job
 export const editJob = async (id, edittedJob) => {
   try {
-    const res = await fetch(`/jobApi/jobs/${id}`, {
+    const res = await fetch(`${API_TO_USE}/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(edittedJob),

@@ -2,7 +2,7 @@ import {fetchJobs} from "../services/ProductApi";
 
 export const jobLoader = async ({ params }) => {
   try {
-    const res = await fetchJobs(`/jobs/${params.id}`);
+    const res = await fetchJobs(`/${params.id}`);
     return res;
   } catch (error) {
     throw new Error(

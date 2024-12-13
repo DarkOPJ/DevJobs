@@ -1,6 +1,6 @@
 // api/jobs.js
 export default async function handler(req, res) {
-    const response = await fetch('https://jsondevdessert.onrender.com/jobs');
+    const response = await fetch('https://jsondevdessert.onrender.com/');
     
     if (!response.ok) {
       return res.status(response.status).json({ error: 'Failed to fetch jobs' });

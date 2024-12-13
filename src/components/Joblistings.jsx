@@ -16,7 +16,8 @@ const Joblistings = ({ isHome = true }) => {
   useEffect(() => {
     const fetchingJobs = async () => {
       try {
-        const data = await fetchJobs("/jobs");
+        // const data = await fetchJobs("/jobs");
+        const data = await fetchJobs("");
         setJobs(data.reverse());
       } catch (err) {
         setError(err.message);
