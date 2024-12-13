@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from "../assets/images/logo.png"
+import logo from "/public/job.ico"
 const Navbar = () => {
   const onPage = ({isActive}) => (isActive ? "text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2" : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2")
 
@@ -10,9 +10,9 @@ const Navbar = () => {
           <div className="flex h-20 items-center justify-between">
             <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
               <NavLink className="flex flex-shrink-0 items-center mr-4" to="/">
-                <img className="h-10 w-auto" src={logo} alt="React Jobs" />
+                <img className="h-10 w-auto" src={logo} alt="DevJobs logo" />
                 <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                  React Jobs
+                  DevJobs
                 </span>
               </NavLink>
               <div className="md:ml-auto">
