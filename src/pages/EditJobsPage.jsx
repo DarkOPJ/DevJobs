@@ -20,7 +20,7 @@ const EditJobsPage = () => {
   const [contactPhone, setContactPhone] = useState(data.company.contactPhone);
   const navigate = useNavigate();
 
-  const editingJob = (e) => {
+  const editingJob = async (e) => {
     e.preventDefault();
 
     const editedJob = {
@@ -38,9 +38,13 @@ const EditJobsPage = () => {
       },
     };
 
-    editJob(id, editedJob);
-    toast.success("Job edited successfully!");
-    navigate(`/jobs/${id}`);
+    try {
+      const result = await editJob(id, editedJob);
+      navigate(`/jobs/${id}`);
+      toast.success("Job edited successfully!");
+    } catch (error) {
+      console.error("Failed to delete job:", error.message);
+    }
   };
 
   return (

@@ -31,12 +31,17 @@ export const addNewJob = async (newJob) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newJob),
     });
+
     if (!res.ok) {
       throw new Error(
         "There was an error sending the data, code: ",
         res.status
       );
     }
+
+    const data = await res.json();
+    return data;
+
   } catch (error) {
     console.error("An error occurred. Error code: ", error);
     throw error;
@@ -56,6 +61,10 @@ export const deleteJob = async (id) => {
         res.status
       );
     }
+
+    const data = await res.json();
+    return data;
+
   } catch (error) {
     console.error("An error occurred. Error code: ", error);
     throw error;
@@ -77,6 +86,10 @@ export const editJob = async (id, edittedJob) => {
         res.status
       );
     }
+
+    const data = await res.json();
+    return data;
+    
   } catch (error) {
     console.error("An error occurred. Error code: ", error);
     throw error;

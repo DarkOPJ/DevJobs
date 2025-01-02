@@ -17,7 +17,7 @@ const Joblistings = ({ isHome = true }) => {
     const fetchingJobs = async () => {
       try {
         // const data = await fetchJobs("/jobs");
-        const data = await fetchJobs('/');
+        const data = await fetchJobs("");
         setJobs(data.reverse());
       } catch (err) {
         setError(err.message);
@@ -55,13 +55,13 @@ const Joblistings = ({ isHome = true }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {sliceJobs.map((job) => (
               <JobListingsCard
-                key={job.id}
+                key={job._id}
                 type={job.type}
                 title={job.title}
                 description={job.description}
                 salary={job.salary}
                 location={job.location}
-                id={job.id}
+                id={job._id}
               />
             ))}
           </div>

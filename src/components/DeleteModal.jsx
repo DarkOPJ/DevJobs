@@ -7,11 +7,15 @@ import { toast } from "react-toastify";
 const DeleteModal = ({ modalControl, id }) => {
   const navigate = useNavigate();
 
-  const deletingJob = () => {
-    deleteJob(id);
-    modalControl.current.close();
-    navigate("/jobs");
-    toast.success("Job deleted successfully!");
+  const deletingJob = async () => {
+    try {
+      const result = await deleteJob(id);
+      modalControl.current.close();
+      navigate("/jobs"); // Navigate to another page after success
+      toast.success("Job deleted successfully!");
+    } catch (error) {
+      console.error("Failed to delete job:", error.message);
+    }
   };
 
   return (

@@ -15,7 +15,7 @@ const AddJobsPage = () => {
   const [contactPhone, setContactPhone] = useState("");
   const navigate = useNavigate();
 
-  const createNewJob = (e) => {
+  const createNewJob = async (e) => {
     e.preventDefault();
 
     const freshJob = {
@@ -32,10 +32,15 @@ const AddJobsPage = () => {
       },
     };
 
-    addNewJob(freshJob);
-    toast.success("Job posted successfully!")
-    navigate("/jobs");
+    try {
+      const result = await addNewJob(freshJob);
+      navigate("/jobs"); // Navigate to another page after success
+      toast.success("Job posted successfully!")
+    } catch (error) {
+      console.error("Failed to add job:", error.message);
+    }
   };
+  
   return (
     <section className="bg-indigo-50">
       <div className="container m-auto max-w-2xl py-24">
