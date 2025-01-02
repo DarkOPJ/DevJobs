@@ -9,7 +9,7 @@ export default defineConfig({
     port: 4000,
     proxy: {
       '/jobApi': {
-        target: "https://jsondevdessert.onrender.com/jobs",
+        target: "https://reactjobsapi.onrender.com/jobs",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/jobApi/, "")
       }

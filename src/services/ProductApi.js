@@ -1,6 +1,6 @@
 // const API_TO_USE = '/jobApi'
 // const API_TO_USE = 'https://jsondevdessert.onrender.com/jobs'
-const API_TO_USE = 'http://localhost:3000/jobs'
+const API_TO_USE = 'https://reactjobsapi.onrender.com/jobs'
 
 // Used to fetch jobs from the api
 export const fetchJobs = async (endpoint) => {
