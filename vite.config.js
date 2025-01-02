@@ -6,7 +6,7 @@ import { replace } from 'react-router-dom'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
+    port: 4000,
     proxy: {
       '/jobApi': {
         target: "https://jsondevdessert.onrender.com/jobs",

@@ -1,5 +1,6 @@
 // const API_TO_USE = '/jobApi'
-const API_TO_USE = 'https://jsondevdessert.onrender.com/jobs'
+// const API_TO_USE = 'https://jsondevdessert.onrender.com/jobs'
+const API_TO_USE = 'http://localhost:3000/jobs'
 
 // Used to fetch jobs from the api
 export const fetchJobs = async (endpoint) => {
@@ -66,7 +67,7 @@ export const deleteJob = async (id) => {
 export const editJob = async (id, edittedJob) => {
   try {
     const res = await fetch(`${API_TO_USE}/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(edittedJob),
     });
